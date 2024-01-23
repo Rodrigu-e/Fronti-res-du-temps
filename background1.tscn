@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfl6mwg2b66c"]
+
+[ext_resource type="Texture2D" uid="uid://d15tk5ysgd74t" path="res://BG1.png" id="1_euloj"]
+
+[node name="background1" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 2018.0
+offset_bottom = 3070.0
+texture = ExtResource("1_euloj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TextureRect"]
+visible = false
+polygon = PackedVector2Array(234, 149, 206, 2786, 2836, 2800, 2821, 177, 2294, 569, 1653, 576, 1653, 747, 1474, 747, 1460, 583, 883, 569)
