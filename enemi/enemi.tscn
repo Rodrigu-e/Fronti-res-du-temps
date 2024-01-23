@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://beek057p1enam"]
+
+[ext_resource type="Script" path="res://enemi/Enemi.gd" id="1_qebb1"]
+[ext_resource type="Texture2D" uid="uid://bpmwyeh3liumk" path="res://img/spritesheet/enemi.webp" id="2_4xlah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx65c"]
+atlas = ExtResource("2_4xlah")
+region = Rect2(0, 0, 197, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77wyd"]
+atlas = ExtResource("2_4xlah")
+region = Rect2(197, 0, 197, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17ohd"]
+atlas = ExtResource("2_4xlah")
+region = Rect2(394, 0, 197, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0qvj"]
+atlas = ExtResource("2_4xlah")
+region = Rect2(591, 0, 197, 300)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rncek"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx65c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77wyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17ohd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0qvj")
+}],
+"loop": true,
+"name": &"Enemi walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2dcr"]
+radius = 590.166
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jc2jf"]
+
+[node name="Enemi" type="CharacterBody2D"]
+script = ExtResource("1_qebb1")
+
+[node name="Animation_enemi" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rncek")
+animation = &"Enemi walk"
+frame = 2
+frame_progress = 0.25549
+
+[node name="Enemi_detection_erea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemi_detection_erea"]
+shape = SubResource("CircleShape2D_m2dcr")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jc2jf")
+
+[connection signal="body_entered" from="Enemi_detection_erea" to="." method="_on_enemi_detection_erea_body_entered"]
+[connection signal="body_exited" from="Enemi_detection_erea" to="." method="_on_enemi_detection_erea_body_exited"]

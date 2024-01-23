@@ -3,6 +3,6 @@
 [node name="Main" type="Node2D"]
 
 [node name="Button" type="Button" parent="."]
-margin_right = 439.0
-margin_bottom = 177.0
+offset_right = 439.0
+offset_bottom = 177.0
 text = "Button"
