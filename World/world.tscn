@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwwchy58bqm5b"]
+
+[ext_resource type="Texture2D" uid="uid://gnf2dikwvyhn" path="res://textures/BG.png" id="1_veb3o"]
+[ext_resource type="PackedScene" uid="uid://dkig728iiqly6" path="res://player/player.tscn" id="2_r143l"]
+
+[node name="World" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = ExtResource("1_veb3o")
+region_enabled = true
+region_rect = Rect2(0, 0, 720, 720)
+
+[node name="player" parent="." instance=ExtResource("2_r143l")]
+scale = Vector2(0.65, 0.65)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.665
+rotation_smoothing_speed = 10.0
